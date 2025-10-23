@@ -77,14 +77,14 @@ file class BuildDefinition : NukeBuild
 		.Executes(() => {
 			var userName = EnvironmentInfo.GetVariable("GITHUB_ACTOR") ?? Environment.UserName ?? "github-actions";
 			var settings = Settings.LoadSpecificSettings(RootDirectory, "NuGet.config");
-			var packageFeed = new PackageSourceProvider(settings).LoadPackageSources()
-				.Single(s => s.Name.Equals("be.stateless.preview", StringComparison.OrdinalIgnoreCase));
-			DotNetNuGetUpdateSource(s => s.SetConfigFile(RootDirectory / "NuGet.config")
-				.SetName(packageFeed.Name)
-				.SetSource(packageFeed.Source)
-				.SetUsername(userName)
-				.SetPassword(YumaPreviewFeedApiKey)
-				.SetStorePasswordInClearText(v: true));
+			new PackageSourceProvider(settings).LoadPackageSources()
+				.Where(ps => ps.Source.Contains("nuget.pkg.github.com", StringComparison.OrdinalIgnoreCase))
+				.ForEach(packageFeed => DotNetNuGetUpdateSource(s => s.SetConfigFile(RootDirectory / "NuGet.config")
+					.SetName(packageFeed.Name)
+					.SetSource(packageFeed.Source)
+					.SetUsername(userName)
+					.SetPassword(YumaPreviewFeedApiKey)
+					.SetStorePasswordInClearText(v: true)));
 		});
 
 	[NotNull]

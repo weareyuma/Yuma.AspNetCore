@@ -12,7 +12,8 @@
          <PrivateAssets>all</PrivateAssets>
          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageVersion>
-      <PackageVersion Include="FluentAssertions" Version="8.7.1"/>
+      <PackageVersion Include="FluentAssertions" Version="8.8.0"/>
+      <PackageVersion Include="MediatR" Version="13.0.0"/>
       <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.0"/>
       <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
          <PrivateAssets>all</PrivateAssets>
@@ -28,5 +29,7 @@
          <PrivateAssets>all</PrivateAssets>
          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageVersion>
+      <PackageVersion Include="Yuma.Persistence.Abstractions" Version="1.0.0-preview.4"/>
+      <PackageVersion Include="Yuma.Unit" Version="1.0.0"/>
    </ItemGroup>
 </Project>

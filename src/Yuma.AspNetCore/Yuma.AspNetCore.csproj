@@ -35,7 +35,13 @@
    </ItemGroup>
 
    <ItemGroup>
+      <FrameworkReference Include="Microsoft.AspNetCore.App" Version="2.2.8"/>
+   </ItemGroup>
+
+   <ItemGroup>
+      <PackageReference Include="MediatR"/>
       <PackageReference Include="Microsoft.SourceLink.GitHub"/>
+      <PackageReference Include="Yuma.Persistence.Abstractions"/>
    </ItemGroup>
 
 </Project>
